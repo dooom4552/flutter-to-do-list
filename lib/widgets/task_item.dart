@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_list/models/todo_item.dart';
-
 import '../bloc/todo_bloc.dart';
 import '../bloc/todo_event.dart';
-import '../bloc/todo_state.dart';
 
 class TaskItem extends StatelessWidget {
   const TaskItem({
@@ -31,7 +29,7 @@ class TaskItem extends StatelessWidget {
         OutlinedButton(
           // ignore: avoid_print
           onPressed: () {
-            todoBloc.add(TodoDeleteEvent(id: todoItem.id));
+            todoBloc.add(TodoDeleteEvent(todoItem: todoItem));
           },
           child: const Text('Delete'),
         )

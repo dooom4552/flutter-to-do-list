@@ -28,7 +28,7 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   FutureOr<void> _onClickDeleteEvent(
       TodoDeleteEvent event, Emitter<TodoState> emit) {
     try {
-      loadedTodoList.retainWhere((element) => element.id != event.id);
+      loadedTodoList.remove(event.todoItem);
       emit(TodoLoadedState(todoItems: loadedTodoList));
     } catch (_) {
       emit(TodoErrorState());
